@@ -1,0 +1,30 @@
+<div class="container dark-color">
+  <div class="col">
+    <p>Feature Container !!! </p>
+  </div>
+  <div class="col">
+    <p>Your total features are {{itemCount}}</p>
+  </div>
+</div>
+
+<div class="container color-light" [@featureListAnimation]="featureList.length">
+  <div class="col">
+    <p class="sm">Use this to add a new feature list. What do you want to accomplish in your call flow?</p>
+
+    <form>
+      <input type="text" class="txt" name="item" placeholder="Add new Features.." [(ngModel)]="featureText">
+      <!-- <input type="submit" class="btn" value="{{btnText}}"> <!--For interpolation-->
+
+      <input type="submit" class="btn" [value]="btnText" (click)="addFeature()">
+
+      <!-- <br><span>{{featureText}}</span> -->
+    </form>
+  </div>
+
+  <div class="col">
+    <p class="life-container" *ngFor="let feature of featureList; let i = index" (click)="removeItem(i)">
+      {{feature}}
+    </p>
+  </div>
+
+</div>
